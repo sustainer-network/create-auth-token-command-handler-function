@@ -43,7 +43,21 @@
                     "permissions": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                          "scope": {
+                            "type": "string",
+                            "description": "The scope of priviledges this permission has."
+                          },
+                          "domain": {
+                            "type": "string",
+                            "description": "The domain within which this permission's priviledges are confined."
+                          },
+                          "root": {
+                            "type": "string",
+                            "description": "The root that this permission applies to."
+                          }
+                        }
                       }
                     },
                     "metadata": {
@@ -66,7 +80,13 @@
                 },
                 "issuedTimestamp": 123,
                 "payload": {
-                  "permissions": ["*:challenge:answer"],
+                  "permissions": [
+                    {
+                      "root": "123asdf",
+                      "domain": "account",
+                      "scopes": "read,write"
+                    }
+                  ],
                   "metadata": {
                     "a": 1,
                     "b": 2

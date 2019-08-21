@@ -12,7 +12,13 @@ describe("Create auth token command", () => {
             metadata: {
               a: 1
             },
-            permissions: ["*:some-domain:<some-actions"]
+            permissions: [
+              {
+                root: "*",
+                domain: "*",
+                scope: "*"
+              }
+            ]
           }
         }
       ],

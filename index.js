@@ -1,4 +1,4 @@
-const commandHandler = require("@sustainer-network/TODO=<some-command>-command-handler");
+const commandHandler = require("@sustainer-network/create-auth-token-command-handler");
 const tokenFromReq = require("@sustainer-network/token-from-req");
 
 exports.http = (req, res) => {

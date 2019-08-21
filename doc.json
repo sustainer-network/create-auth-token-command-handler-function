@@ -6,8 +6,8 @@
   "paths": {
     "/issue": {
       "post": {
-        "summary": "TODO=<A quick summary of what this command does, like 'Changes an account's email'>",
-        "description": "TODO=<A more detailed description, like 'sets an account's email to the provided value if the email isn't taken by another account.'>",
+        "summary": "Creates an auth token",
+        "description": "Creates an auth token with the specified permissions.",
         "security": [],
         "parameters": [
           {
@@ -28,50 +28,54 @@
                   },
                   "required": ["ip", "id"]
                 },
-                "data": {
+                "traceId": {
+                  "description": "An identification string to match against views created in reaction to the command.",
+                  "type": "string"
+                },
+                "issuedTimestamp": {
+                  "description": "The timestamp the command was issued on.",
+                  "type": "integer"
+                },
+                "payload": {
+                  "description": "The command's payload.",
                   "type": "object",
-                  "description": "The data to associate with the command.",
                   "properties": {
-                    "traceId": {
-                      "description": "An identification string to match against views created in reaction to the command.",
-                      "type": "string"
-                    },
-                    "issuedTimestamp": {
-                      "description": "The timestamp the command was issued on.",
-                      "type": "integer"
-                    },
-                    "payload": {
-                      "description": "The command's payload.",
-                      "type": "object",
-                      "properties": {
-                        "some-key": "TODO=<Describe the payload's expected values here following these guidelines --> https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#parameterObject>"
+                    "permissions": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
                       }
-                    }
-                  },
-                  "required": ["issuedTimestamp", "payload"]
-                }
-              },
-              "required": ["data", "clientInfo"],
-              "example": {
-                "commands": [
-                  {
-                    "name": "`create-expense`",
-                    "data": {
-                      "traceId": "aUniqueId1234",
-                      "issuedTimestamp": 1563668435000,
-                      "payload": { "someProperty": "someValue" }
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {}
                     }
                   }
-                ],
+                }
+              },
+              "required": [
+                "payload",
+                "issuedTimestamp",
+                "traceId",
+                "clientInfo"
+              ],
+              "example": {
                 "clientInfo": {
                   "ip": "0.0.0.0",
                   "id": "nc198234r57"
-                }
+                },
+                "issuedTimestamp": 123,
+                "payload": {
+                  "permissions": ["*:challenge:answer"],
+                  "metadata": {
+                    "a": 1,
+                    "b": 2
+                  }
+                },
+                "traceId": "asdf123"
               },
               "type": "object"
-            },
-            "name": "body",
-            "in": "body"
+            }
           }
         ],
         "consumes": ["application/json"],

@@ -1,8 +1,8 @@
 {
   "substitutions": {
-    "_TITLE": "[TODO=<Title case descriptor for documentation, like Change Account Email>]",
-    "_ACTION": "[TODO=<hyphen-seperated-action>, like change-email>]",
-    "_DOMAIN": "[TODO=<hyphen-seperated-unique-domain, like account or service-request>]",
+    "_TITLE": "Create Auth Token",
+    "_ACTION": "create",
+    "_DOMAIN": "auth-token",
     "_SERVICE": "sustainer-network",
     "_SERVICE_DOMAIN": "sustainer.network",
     "_GCP_PROJECT": "sustainernetwork",

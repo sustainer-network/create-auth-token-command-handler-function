@@ -2,16 +2,18 @@ const { expect } = require("chai");
 const { post } = require("@sustainer-network/request");
 
 const address =
-  "https://TODO=<some-command>.command.staging.sustainable.network/v1/issue";
-describe("TODO=<change this name, like `Change account email command`>", () => {
+  "https://create.auth-token.staging.sustainable.network/v1/issue";
+describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
       data: [
         {
           issuedTimestamp: 123,
           payload: {
-            TODO: "Write in sample input data",
-            a: 1
+            metadata: {
+              a: 1
+            },
+            permissions: ["*:some-domain:<some-actions"]
           }
         }
       ],
@@ -22,7 +24,7 @@ describe("TODO=<change this name, like `Change account email command`>", () => {
     });
 
     expect(response.statusCode).to.equal(200);
-    expect(response.body).to.equal("");
+    expect(response.body).to.equal({});
   });
   it("should return an error if incorrect params", async () => {
     const response = await post(address, {});

@@ -1,8 +1,8 @@
 {
-  "name": "@sustainer-network/TODO=<some-command>-command-handler-function",
+  "name": "@sustainer-network/create-auth-token-command-handler-function",
   "version": "0.0.0",
   "dependencies": {
-    "@sustainer-network/TODO=<some-command>-command-handler": "*",
+    "@sustainer-network/create-auth-token-command-handler": "*",
     "@sustainer-network/token-from-req": "*",
     "@sustainer-network/errors": "*"
   },

@@ -1,7 +1,3 @@
-#### Once the repo is cloned, search for the keyword `TODO` to fill out the template. There should be no `TODO`'s left over, and this README should be rewritten to reflect relevant information for the new command.
-
-#### The following files are in this template:
-
 ### build.json
 
 The automated instructions for testing and deploying this function, and publishing it's documentation. This is interpreted by Google Cloud Build after the trigger is configured.

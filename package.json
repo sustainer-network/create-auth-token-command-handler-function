@@ -8,7 +8,7 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "test": "mocha --recursive  --timeout 5000",
+    "test": "mocha --recursive  --timeout 10000",
     "checkbuild": "./.checkbuild.sh"
   },
   "devDependencies": {

@@ -10,6 +10,8 @@ See https://cloud.google.com/cloud-build/docs/build-debug-locally for more info 
 
 The documentation that will be published to docs.sustainablenetwork.org through Cloud Endpoints. This follows the OpenAPI specs.
 
+To check for proper formatting before submitting, do `yarn checkbuild`.
+
 ### index.js
 
 This is the body of the function and should just immediately call a function imported from a package.

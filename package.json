@@ -7,7 +7,7 @@
     "@sustainer-network/errors": "*"
   },
   "scripts": {
-    "precommit": "lint-staged",
+    "precommit": "lint-staged && yarn checkbuild",
     "test": "mocha --recursive  --timeout 10000",
     "checkbuild": "./.checkbuild.sh"
   },
@@ -26,7 +26,6 @@
     "*.js": [
       "eslint --fix",
       "prettier-eslint --write",
-      "yarn checkbuild",
       "git add"
     ],
     "*.json": [

@@ -8,6 +8,7 @@ describe("Create auth token command", () => {
       data: [
         {
           issuedTimestamp: 123,
+          account: "some-account-root",
           payload: {
             metadata: {
               a: 1

@@ -60,19 +60,19 @@
                         }
                       }
                     },
+                    "account": {
+                      "type": "string",
+                      "description": "The account to which the created token belongs."
+                    },
                     "metadata": {
                       "type": "object",
+                      "description": "Additional publicly visible key-value pairs to add to the created token.",
                       "properties": {}
                     }
                   }
                 }
               },
-              "required": [
-                "payload",
-                "issuedTimestamp",
-                "traceId",
-                "clientInfo"
-              ],
+              "required": ["payload", "issuedTimestamp", "traceId"],
               "example": {
                 "clientInfo": {
                   "ip": "0.0.0.0",

@@ -6,6 +6,8 @@ const eventBus = require("@sustainer-network/event-bus");
 
 exports.command = (req, res) => {
   // eslint-disable-next-line no-console
+  console.log("req: ", { req });
+  // eslint-disable-next-line no-console
   console.log("BODY: ", { ...req.body, ...commandInfoFromReq(req) });
   const host = req.get("host");
   const subdomains = host.split(".");

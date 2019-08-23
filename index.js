@@ -1,5 +1,6 @@
 const commandHandler = require("@sustainer-network/create-auth-token-command-handler");
 const tokensFromReq = require("@sustainer-network/tokens-from-req");
+const commandInfoFromReq = require("@sustainer-network/command-info-from-req");
 const eventStore = require("@sustainer-network/event-store-js");
 const eventBus = require("@sustainer-network/event-bus");
 
@@ -9,7 +10,7 @@ exports.command = (req, res) => {
     console.log("PERM: ", req.body.payload.permissions);
   }
   commandHandler({
-    body: req.body,
+    body: { ...req.body, ...commandInfoFromReq(req) },
     tokens: tokensFromReq(req),
     publishEventFn: event => {
       eventStore.add(event);

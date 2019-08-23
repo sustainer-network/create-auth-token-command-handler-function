@@ -4,6 +4,8 @@ const eventStore = require("@sustainer-network/event-store-js");
 const eventBus = require("@sustainer-network/event-bus");
 
 exports.command = (req, res) => {
+  // eslint-disable-next-line no-console
+  console.log("BODY: ", { body: req.body });
   commandHandler({
     body: req.body,
     tokens: tokensFromReq(req),

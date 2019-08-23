@@ -27,10 +27,8 @@ describe("Create auth token command", () => {
       }
     });
 
-    // eslint-disable-next-line no-console
-    console.log("RESPONSE: ", response);
     expect(response.statusCode).to.equal(200);
-    expect(response.body.token).to.exist;
+    expect(JSON.parse(response.body).token).to.exist;
   });
   it("should return an error if incorrect params", async () => {
     const response = await post(address, {});

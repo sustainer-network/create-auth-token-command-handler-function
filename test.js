@@ -30,6 +30,6 @@ describe("Create auth token command", () => {
   });
   it("should return an error if incorrect params", async () => {
     const response = await post(address, {});
-    expect(response.statusCode).to.be.greaterThan(400);
+    expect(response.statusCode).to.be.at.least(400);
   });
 });

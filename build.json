@@ -101,6 +101,14 @@
       ]
     },
     {
+      "name": "gcr.io/cloud-builders/gcloud",
+      "entrypoint": "bash",
+      "args": [
+        "-c",
+        "gcloud pubsub topics create did-${_ACTION}.${_DOMAIN}.staging.${_SERVICE} --project=${_GCP_PROJECT} --region=${_GCP_REGION} || exit 0"
+      ]
+    },
+    {
       "name": "node:10.16.0",
       "entrypoint": "yarn",
       "args": ["install"]
@@ -196,6 +204,14 @@
       "args": [
         "-c",
         "gcloud beta functions add-iam-policy-binding ${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --member serviceAccount:31066734336-compute@developer.gserviceaccount.com --role roles/cloudfunctions.invoker --project=${_GCP_PROJECT} --region=${_GCP_REGION}"
+      ]
+    },
+    {
+      "name": "gcr.io/cloud-builders/gcloud",
+      "entrypoint": "bash",
+      "args": [
+        "-c",
+        "gcloud pubsub topics create did-${_ACTION}.${_DOMAIN}.${_SERVICE} --project=${_GCP_PROJECT} --region=${_GCP_REGION} || exit 0"
       ]
     }
   ]

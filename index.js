@@ -14,7 +14,11 @@ exports.command = (req, res) => {
       eventBus.publish(event);
     }
   })
-    .then(response => res.send(response))
+    .then(response => {
+      // eslint-disable-next-line no-console
+      console.log("RRRRRR: ", response);
+      res.send(response);
+    })
     .catch(e => {
       // eslint-disable-next-line no-console
       console.log("EEEE: ", { e, stack: e.stack });

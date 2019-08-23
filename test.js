@@ -1,3 +1,4 @@
+const { fineTimestamp } = require("@sustainer-network/datetime");
 const { expect } = require("chai");
 const { post } = require("@sustainer-network/request");
 
@@ -6,7 +7,7 @@ const address =
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
-      issuedTimestamp: 123,
+      issuedTimestamp: fineTimestamp(),
       account: "some-account-root",
       payload: {
         metadata: {

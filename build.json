@@ -8,7 +8,6 @@
     "_GCP_REGION": "us-central1",
     "_GCP_DNS_ZONE": "network",
     "_TYPE": "command",
-    "_ENV_VARS": "SECRET=${_SECRET}",
     "_ESP_OPTIONS": "--cors_preset=basic,--cors_allow_methods=POST,--cors_allow_headers=Authorization Content-Type,--cors_allow_credentials",
     "_MEMORY": "128MB"
   },
@@ -18,7 +17,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,${_ENV_VARS}"
+        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,SECRET=${_SECRET}"
       ]
     },
     {
@@ -116,7 +115,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud functions deploy ${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --set-env-vars=NODE_ENV=production,${_ENV_VARS}"
+        "gcloud functions deploy ${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --set-env-vars=NODE_ENV=production,SECRET=${_SECRET}"
       ]
     },
     {

@@ -13,5 +13,9 @@ exports.http = (req, res) => {
     }
   })
     .then(response => res.send(response))
-    .catch(e => res.status(e.statusCode).send(e));
+    .catch(e => {
+      // eslint-disable-next-line no-console
+      console.log("EEEE: ", e);
+      res.status(e.statusCode).send(e);
+    });
 };

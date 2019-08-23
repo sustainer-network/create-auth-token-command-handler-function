@@ -1,7 +1,8 @@
 const { expect } = require("chai");
 const { post } = require("@sustainer-network/request");
 
-const address = "https://create.auth-token.staging.sustainer.network/v1/issue";
+const address =
+  "https://create.auth-token.core.staging.sustainer.network/v1/issue";
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {

@@ -28,7 +28,7 @@ describe("Create auth token command", () => {
     });
 
     expect(response.statusCode).to.equal(200);
-    expect(response.body).to.equal({});
+    expect(response.body.token).to.exist;
   });
   it("should return an error if incorrect params", async () => {
     const response = await post(address, {});

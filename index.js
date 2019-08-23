@@ -7,8 +7,8 @@ exports.http = (req, res) => {
   commandHandler({
     body: req.body,
     tokens: tokensFromReq(req),
-    publishEventFn: ({ event, domain, service }) => {
-      eventStore({ domain, service }).add(event);
+    publishEventFn: event => {
+      eventStore.add(event);
       eventBus.publish(event);
     }
   })

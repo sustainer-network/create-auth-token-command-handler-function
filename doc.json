@@ -13,7 +13,7 @@
           {
             "schema": {
               "properties": {
-                "clientInfo": {
+                "issuerInfo": {
                   "description": "Client data.",
                   "type": "object",
                   "properties": {
@@ -27,6 +27,29 @@
                     }
                   },
                   "required": ["ip", "id"]
+                },
+                "sourceCommand": {
+                  "description": "If this command was issued by another command, the calling command's info should be described here.",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "The calling command's id.",
+                      "type": "string"
+                    },
+                    "action": {
+                      "description": "The calling command's action.",
+                      "type": "string"
+                    },
+                    "domain": {
+                      "description": "The calling command's domain.",
+                      "type": "string"
+                    },
+                    "service": {
+                      "description": "The calling command's service.",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["id", "action", "domain", "service"]
                 },
                 "traceId": {
                   "description": "An identification string to match against views created in reaction to the command.",
@@ -72,11 +95,17 @@
                   }
                 }
               },
-              "required": ["payload", "issuedTimestamp", "traceId"],
+              "required": ["payload", "issuedTimestamp", "traceId", "account"],
               "example": {
                 "clientInfo": {
                   "ip": "0.0.0.0",
                   "id": "nc198234r57"
+                },
+                "sourceCommand": {
+                  "id": "f9fhkas923",
+                  "action": "do-something",
+                  "domain": "some-domain",
+                  "service": "some-service"
                 },
                 "issuedTimestamp": 123,
                 "payload": {

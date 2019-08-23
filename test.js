@@ -7,9 +7,8 @@ const address =
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
-      issuedTimestamp: fineTimestamp(),
-      account: "some-account-root",
       payload: {
+        account: "some-account-root",
         metadata: {
           a: 1
         },
@@ -21,6 +20,7 @@ describe("Create auth token command", () => {
           }
         ]
       },
+      issuedTimestamp: fineTimestamp(),
       issuerInfo: {
         id: "asdf",
         ip: "asdf"

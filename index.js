@@ -3,7 +3,7 @@ const tokensFromReq = require("@sustainer-network/tokens-from-req");
 const eventStore = require("@sustainer-network/event-store-js");
 const eventBus = require("@sustainer-network/event-bus");
 
-exports.http = (req, res) => {
+exports.command = (req, res) => {
   commandHandler({
     body: req.body,
     tokens: tokensFromReq(req),

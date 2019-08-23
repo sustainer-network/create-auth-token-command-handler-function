@@ -18,7 +18,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=http --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,${_ENV_VARS}"
+        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,${_ENV_VARS}"
       ]
     },
     {
@@ -116,7 +116,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud functions deploy ${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=http --set-env-vars=NODE_ENV=production,${_ENV_VARS}"
+        "gcloud functions deploy ${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --set-env-vars=NODE_ENV=production,${_ENV_VARS}"
       ]
     },
     {

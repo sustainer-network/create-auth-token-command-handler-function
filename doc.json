@@ -74,7 +74,7 @@
                           },
                           "domain": {
                             "type": "string",
-                            "description": "The domain within which this permission's priviledges are confined."
+                            "description": "The domain to which this permission's priviledges are confined."
                           },
                           "root": {
                             "type": "string",

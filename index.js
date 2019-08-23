@@ -4,14 +4,6 @@ const eventStore = require("@sustainer-network/event-store-js");
 const eventBus = require("@sustainer-network/event-bus");
 
 exports.http = (req, res) => {
-  // eslint-disable-next-line no-console
-  console.log("BODY: ", req.body);
-
-  // eslint-disable-next-line no-console
-  console.log("PAYLOAD: ", req.body.payload);
-
-  // eslint-disable-next-line no-console
-  console.log("PERM: ", req.body.payload.permissions);
   commandHandler({
     body: req.body,
     tokens: tokensFromReq(req),

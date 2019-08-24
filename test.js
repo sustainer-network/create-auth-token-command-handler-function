@@ -27,9 +27,6 @@ describe("Create auth token command", () => {
       }
     });
 
-    //eslint-disable-next-line no-console
-    console.log("RES: ", response);
-
     expect(response.statusCode).to.equal(200);
     expect(JSON.parse(response.body).token).to.exist;
   });

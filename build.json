@@ -105,7 +105,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud pubsub topics create did-${_ACTION}.${_DOMAIN}.staging.${_SERVICE} --project=${_GCP_PROJECT} || exit 0"
+        "gcloud pubsub topics create did-${_ACTION}.${_DOMAIN}.${_SERVICE}.staging --project=${_GCP_PROJECT} || exit 0"
       ]
     },
     {

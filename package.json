@@ -5,7 +5,6 @@
     "@sustainer-network/create-auth-token-command-handler": "*",
     "@sustainer-network/tokens-from-req": "*",
     "@sustainer-network/event-store-js": "*",
-    "@sustainer-network/event-bus": "*",
     "@sustainer-network/errors": "*"
   },
   "scripts": {

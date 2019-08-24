@@ -11,6 +11,14 @@
     "_ESP_OPTIONS": "--cors_preset=basic,--cors_allow_methods=POST,--cors_allow_headers=Authorization Content-Type,--cors_allow_credentials",
     "_MEMORY": "128MB"
   },
+  "secrets": [
+    {
+      "kmsKeyName": " projects/[PROJECT-ID]/locations/global/keyRings/auth-token-secret/cryptoKeys/main",
+      "secretEnv": {
+        "SECRET": ""
+      }
+    }
+  ],
   "steps": [
     {
       "name": "gcr.io/cloud-builders/gcloud",

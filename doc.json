@@ -7,7 +7,7 @@
     "/issue": {
       "post": {
         "summary": "Creates an auth token",
-        "description": "Creates an auth token with the specified permissions.",
+        "description": "Creates an auth token for a particular subject that has access to the specified audience.",
         "security": [],
         "parameters": [
           {
@@ -63,39 +63,50 @@
                   "description": "The command's payload.",
                   "type": "object",
                   "properties": {
-                    "permissions": {
+                    "audience": {
                       "type": "array",
+                      "description": "The audience who this token is intended for.",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "scope": {
+                          "service": {
                             "type": "string",
-                            "description": "The scope of priviledges this permission has."
+                            "description": "The service to which this audience's priviledges are confined."
                           },
                           "domain": {
                             "type": "string",
-                            "description": "The domain to which this permission's priviledges are confined."
+                            "description": "The domain to which this audience's priviledges are confined."
                           },
                           "root": {
                             "type": "string",
                             "description": "The root that this permission applies to."
+                          },
+                          "scope": {
+                            "type": "string",
+                            "description": "The scope of priviledges this audience has."
                           }
-                        }
+                        },
+                        "required": ["service", "domain", "root", "scope"]
                       }
                     },
-                    "account": {
+                    "issuer": {
                       "type": "string",
-                      "description": "The account to which the created token belongs."
+                      "description": "The root of the principle who is issuing the auth token."
+                    },
+                    "subject": {
+                      "type": "string",
+                      "description": "The root of the principle who the auth token is intended for."
                     },
                     "metadata": {
                       "type": "object",
                       "description": "Additional publicly visible key-value pairs to add to the created token.",
                       "properties": {}
                     }
-                  }
+                  },
+                  "required": ["audience", "issuer", "subject"]
                 }
               },
-              "required": ["payload", "issuedTimestamp", "traceId", "account"],
+              "required": ["payload", "issuedTimestamp", "traceId"],
               "example": {
                 "clientInfo": {
                   "ip": "0.0.0.0",
@@ -109,11 +120,12 @@
                 },
                 "issuedTimestamp": 123,
                 "payload": {
-                  "permissions": [
+                  "audience": [
                     {
-                      "root": "123asdf",
+                      "service": "sustainer-network",
                       "domain": "account",
-                      "scopes": "read,write"
+                      "root": "123asdf",
+                      "scopes": "read,create"
                     }
                   ],
                   "metadata": {

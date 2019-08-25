@@ -8,7 +8,6 @@
       "post": {
         "summary": "Creates an auth token",
         "description": "Creates an auth token for a particular subject that has access to the specified audience.",
-        "security": [],
         "parameters": [
           {
             "schema": {
@@ -63,35 +62,13 @@
                   "description": "The command's payload.",
                   "type": "object",
                   "properties": {
-                    "audience": {
+                    "audiences": {
                       "type": "array",
                       "description": "The audience who this token is intended for.",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "service": {
-                            "type": "string",
-                            "description": "The service to which this audience's priviledges are confined."
-                          },
-                          "domain": {
-                            "type": "string",
-                            "description": "The domain to which this audience's priviledges are confined."
-                          },
-                          "root": {
-                            "type": "string",
-                            "description": "The root that this permission applies to."
-                          },
-                          "scope": {
-                            "type": "string",
-                            "description": "The scope of priviledges this audience has."
-                          }
-                        },
-                        "required": ["service", "domain", "root", "scope"]
+                        "type": "string",
+                        "description": "The names of services to allow access to."
                       }
-                    },
-                    "issuer": {
-                      "type": "string",
-                      "description": "The root of the principle who is issuing the auth token."
                     },
                     "subject": {
                       "type": "string",
@@ -103,7 +80,7 @@
                       "properties": {}
                     }
                   },
-                  "required": ["audience", "issuer", "subject"]
+                  "required": ["audiences", "subject"]
                 }
               },
               "required": ["payload", "issuedTimestamp", "traceId"],

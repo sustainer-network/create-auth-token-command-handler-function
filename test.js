@@ -8,19 +8,11 @@ describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
       payload: {
-        issuer: "some-principle-root",
         subject: "some-other-principle-root",
         metadata: {
           a: 1
         },
-        audience: [
-          {
-            service: "*",
-            domain: "*",
-            root: "*",
-            scope: "*"
-          }
-        ]
+        audiences: ["*"]
       },
       issuedTimestamp: fineTimestamp(),
       issuerInfo: {

@@ -14,7 +14,7 @@
   },
   "secrets": [
     {
-      "kmsKeyName": " projects/sustainernetwork/locations/global/keyRings/auth-token-secret/cryptoKeys/primary",
+      "kmsKeyName": "projects/sustainernetwork/locations/global/keyRings/auth-token-secret/cryptoKeys/primary",
       "secretEnv": {
         "SECRET": "CiQAl+rxdsYRNSZYWmKQIeO8urMLv0KWaWVzan24L/JZcMDGsPMSRADvYPzl+lGGh3JDvv0HB/Swz3LsGNzhq6QAEHy0foEaY1GkKa7pQSA/ZXK0ri4WzYo0uj+41sQF1+ydqB2ZXFKSn3VD"
       }

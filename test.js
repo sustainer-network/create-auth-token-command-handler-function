@@ -10,7 +10,7 @@ describe("Create auth token command", () => {
       payload: {
         subject: "some-other-principle-root",
         metadata: {
-          a: 1
+          a: 3
         },
         audiences: ["*"]
       },

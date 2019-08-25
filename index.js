@@ -9,5 +9,9 @@ exports.command = (req, res) => {
     publishEventFn: eventStore.add
   })
     .then(response => res.send(response))
-    .catch(e => res.status(e.statusCode).send(e));
+    .catch(e => {
+      //eslint-disable-next-line no-console
+      console.log("err: ", { e, stack: e.stack });
+      res.status(e.statusCode).send(e);
+    });
 };

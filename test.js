@@ -1,6 +1,6 @@
-const { fineTimestamp } = require("@sustainer-network/datetime");
 const { expect } = require("chai");
 const { post } = require("@sustainer-network/request");
+const { fineTimestamp } = require("@sustainer-network/datetime");
 
 const address =
   "https://create.auth-token.core.staging.sustainer.network/v1/issue";

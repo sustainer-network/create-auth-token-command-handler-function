@@ -7,13 +7,9 @@ const address =
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
-      payload: {
-        subject: "some-other-principle-root",
-        metadata: {
-          a: 3
-        },
-        audiences: ["*"]
-      },
+      principle: "some-other-principle-root",
+      audiences: ["*"],
+      scopes: ["*:*:*"],
       issuedTimestamp: fineTimestamp(),
       issuerInfo: {
         id: "asdf",
@@ -22,6 +18,9 @@ describe("Create auth token command", () => {
     });
 
     expect(response.statusCode).to.equal(200);
+    //eslint-disable-next-line no-console
+    console.log(JSON.parse(response.body).token);
+
     expect(JSON.parse(response.body).token).to.exist;
   });
   it("should return an error if incorrect params", async () => {

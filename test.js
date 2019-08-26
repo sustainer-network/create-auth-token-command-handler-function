@@ -13,7 +13,7 @@ describe("Create auth token command", () => {
       options: {
         issuer: "create.auth-token.core.staging.sustainer.network",
         subject: principle,
-        audience: ["*"],
+        audience: ["https://create.auth-token.core.staging.sustainer.network"],
         expiresIn: 234234234234
       },
       data: {

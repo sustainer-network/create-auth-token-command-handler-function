@@ -4,6 +4,7 @@ const { fineTimestamp } = require("@sustainer-network/datetime");
 
 const address =
   "https://create.auth-token.core.staging.sustainer.network/v1/issue";
+
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(

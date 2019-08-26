@@ -6,16 +6,20 @@ const address =
   "https://create.auth-token.core.staging.sustainer.network/v1/issue";
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
-    const response = await post(address, {
-      principle: "some-principle-root",
-      audiences: ["*"],
-      scopes: ["*:*:*"],
-      issuedTimestamp: fineTimestamp(),
-      issuerInfo: {
-        id: "asdf",
-        ip: "asdf"
-      }
-    });
+    const response = await post(
+      address,
+      {
+        principle: "some-principle-root",
+        audiences: ["*"],
+        scopes: ["*:*:*"],
+        issuedTimestamp: fineTimestamp(),
+        issuerInfo: {
+          id: "asdf",
+          ip: "asdf"
+        }
+      },
+      { authorization: "" }
+    );
 
     expect(response.statusCode).to.equal(200);
     //eslint-disable-next-line no-console

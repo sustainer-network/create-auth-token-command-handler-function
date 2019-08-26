@@ -7,7 +7,7 @@ const address =
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
     const response = await post(address, {
-      principle: "some-other-principle-root",
+      principle: "some-principle-root",
       audiences: ["*"],
       scopes: ["*:*:*"],
       issuedTimestamp: fineTimestamp(),

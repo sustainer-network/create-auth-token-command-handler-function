@@ -183,7 +183,7 @@
       "flow": "implicit",
       "type": "oauth2",
       "x-google-issuer": "#_TOKEN_ISSUER",
-      "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v3/certs"
+      "x-google-jwks_uri": "CiQAl+rxdsYRNSZYWmKQIeO8urMLv0KWaWVzan24L/JZcMDGsPMSRADvYPzl+lGGh3JDvv0HB/Swz3LsGNzhq6QAEHy0foEaY1GkKa7pQSA/ZXK0ri4WzYo0uj+41sQF1+ydqB2ZXFKSn3VD"
     }
   },
   "security": [{ "auth_token": [] }],

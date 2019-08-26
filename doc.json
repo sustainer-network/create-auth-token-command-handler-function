@@ -58,32 +58,53 @@
                   "description": "The timestamp the command was issued on.",
                   "type": "integer"
                 },
-                "payload": {
-                  "description": "The command's payload.",
+                "audiences": {
+                  "type": "array",
+                  "description": "The audience who this token is intended for.",
+                  "items": {
+                    "type": "string",
+                    "description": "The names of services to allow access to."
+                  }
+                },
+                "context": {
+                  "description": "Context within which this token should be interpreted in.",
                   "type": "object",
-                  "properties": {
-                    "audiences": {
-                      "type": "array",
-                      "description": "The audience who this token is intended for.",
-                      "items": {
+                  "properties": {}
+                },
+                "scopes": {
+                  "description": "Context within which this token should be interpreted in.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "domain": {
                         "type": "string",
-                        "description": "The names of services to allow access to."
+                        "description": "The domain to which this scope applies. Use `*` for wildcard, and comman-seperated values."
+                      },
+                      "root": {
+                        "type": "string",
+                        "description": "The root to which this scope applies. Use `*` for wildcard, and comman-seperated values."
+                      },
+                      "priviledge": {
+                        "type": "string",
+                        "description": "The priviledges to which this scope applies. Use `*` for wildcard, and comman-seperated values."
                       }
                     },
-                    "subject": {
-                      "type": "string",
-                      "description": "The root of the principle who the auth token is intended for."
-                    },
-                    "metadata": {
-                      "type": "object",
-                      "description": "Additional publicly visible key-value pairs to add to the created token.",
-                      "properties": {}
-                    }
-                  },
-                  "required": ["audiences", "subject"]
+                    "required": ["domain", "root", "priviledge"]
+                  }
+                },
+                "principle": {
+                  "type": "string",
+                  "description": "The root of the principle who the auth token is intended for."
                 }
               },
-              "required": ["payload", "issuedTimestamp", "traceId"],
+              "required": [
+                "issuedTimestamp",
+                "traceId",
+                "audiences",
+                "subject",
+                "scopes"
+              ],
               "example": {
                 "clientInfo": {
                   "ip": "0.0.0.0",
@@ -96,20 +117,25 @@
                   "service": "some-service"
                 },
                 "issuedTimestamp": 123,
-                "payload": {
-                  "audience": [
-                    {
-                      "service": "sustainer-network",
-                      "domain": "account",
-                      "root": "123asdf",
-                      "scopes": "read,create"
-                    }
-                  ],
-                  "metadata": {
-                    "a": 1,
-                    "b": 2
+                "audience": [
+                  {
+                    "service": "sustainer-network",
+                    "domain": "account",
+                    "root": "123asdf",
+                    "scopes": "read,create"
                   }
+                ],
+                "subject": "some-subject-principle",
+                "context": {
+                  "org": "an-org-root"
                 },
+                "scopes": [
+                  {
+                    "domain": "a-domain",
+                    "root": "*",
+                    "priviledge": "read, write"
+                  }
+                ],
                 "traceId": "asdf123"
               },
               "type": "object"

@@ -25,7 +25,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-${_TYPE} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
+        "gcloud functions deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION} --trigger-http --memory=${_MEMORY} --runtime=nodejs10 --entry-point=command --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
       ],
       "secretEnv": ["SECRET"]
     },

@@ -1,10 +1,10 @@
 const commandHandler = require("@sustainer-network/create-auth-token-command-handler");
 const tokensFromReq = require("@sustainer-network/tokens-from-req");
 const eventStore = require("@sustainer-network/event-store-js");
+const logger = require("@sustainer-network/logger");
 
 exports.command = (req, res) => {
-  //eslint-disable-next-line no-console
-  console.log("REQ BE: ", { req });
+  logger.info("REQ BE: ", { req });
   commandHandler({
     params: req.body,
     tokens: tokensFromReq(req),
@@ -12,8 +12,7 @@ exports.command = (req, res) => {
   })
     .then(response => res.send(response))
     .catch(e => {
-      //eslint-disable-next-line no-console
-      console.log("EEE: ", { e, stack: e.stack });
+      logger.info("EEE BE: ", { req });
       res.status(e.statusCode).send(e);
     });
 };

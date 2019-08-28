@@ -2,13 +2,16 @@
   "name": "@sustainer-network/create-auth-token-command-handler-function",
   "version": "0.0.0",
   "dependencies": {
+    "express": "^4.17.1",
     "@sustainer-network/create-auth-token-command-handler": "*",
     "@sustainer-network/tokens-from-req": "*",
     "@sustainer-network/event-store-js": "*",
     "@sustainer-network/errors": "*",
     "@sustainer-network/logger": "*"
   },
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "precommit": "lint-staged && yarn checkbuild",
     "test": "mocha --recursive  --timeout 10000",
     "checkbuild": "./.checkbuild.sh"

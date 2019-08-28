@@ -177,16 +177,6 @@
       }
     }
   },
-  "securityDefinitions": {
-    "auth_token": {
-      "authorizationUrl": "",
-      "flow": "implicit",
-      "type": "oauth2",
-      "x-google-issuer": "#_TOKEN_ISSUER",
-      "x-google-jwks_uri": "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com"
-    }
-  },
-  "security": [{ "auth_token": [] }],
   "schemes": ["https"],
   "basePath": "/v1",
   "swagger": "2.0",

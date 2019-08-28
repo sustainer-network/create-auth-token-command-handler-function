@@ -3,6 +3,8 @@ const tokensFromReq = require("@sustainer-network/tokens-from-req");
 const eventStore = require("@sustainer-network/event-store-js");
 
 exports.command = (req, res) => {
+  //eslint-disable-next-line no-console
+  console.log("REQ BE: ", { req });
   commandHandler({
     params: req.body,
     tokens: tokensFromReq(req),

@@ -3,8 +3,7 @@ const { post } = require("@sustainer-network/request");
 const { fineTimestamp } = require("@sustainer-network/datetime");
 // const { create } = require("@sustainer-network/jwt");
 
-const address =
-  "https://us-central1-sustainernetwork.cloudfunctions.net/function-1"; //"https://create.auth-token.core.staging.sustainer.network";
+const url = "https://create.auth-token.core.staging.sustainer.network";
 
 describe("Create auth token command", () => {
   it("should return successfully", async () => {
@@ -29,7 +28,7 @@ describe("Create auth token command", () => {
     //   secret: process.env.SECRET
     // });
     const response = await post(
-      address,
+      url,
       {
         principle: "some-principle-root",
         audiences: ["*"],

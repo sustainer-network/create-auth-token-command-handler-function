@@ -8,6 +8,8 @@ const logger = require("@sustainer-network/logger");
 
 app.post("/", (req, res) => {
   logger.info("REQ BE: ", { req });
+  logger.info("HEADERS BE: ", { headers: req.headers });
+  logger.info("BODY BE: ", { body: req.body });
   commandHandler({
     params: req.body,
     tokens: tokensFromReq(req),
@@ -15,7 +17,7 @@ app.post("/", (req, res) => {
   })
     .then(response => res.send(response))
     .catch(e => {
-      logger.info("EEE BE: ", { req });
+      logger.info("EEE BE: ", { e });
       res.status(e.statusCode).send(e);
     });
 });

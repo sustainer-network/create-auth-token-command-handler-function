@@ -4,7 +4,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/issue": {
+    "/": {
       "post": {
         "summary": "Creates an auth token",
         "description": "Creates an auth token for a particular subject that has access to the specified audience.",
@@ -175,7 +175,7 @@
     }
   },
   "schemes": ["https"],
-  "basePath": "/v1",
+  "basePath": "/v1/",
   "swagger": "2.0",
   "host": "#_HOST"
 }

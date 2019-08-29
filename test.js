@@ -40,8 +40,7 @@ describe("Create auth token command", () => {
         }
       },
       {
-        authorization: "Bearer BOOHOOOHOOHO",
-        "content-type": "application/json"
+        authorization: "Bearer BOOHOOOHOOHO"
       }
     );
 

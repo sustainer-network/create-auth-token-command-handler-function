@@ -1,4 +1,7 @@
 const express = require("express");
+var bodyParser = require("body-parser");
+var jsonParser = bodyParser.json();
+
 const app = express();
 
 const commandHandler = require("@sustainer-network/create-auth-token-command-handler");
@@ -6,7 +9,8 @@ const tokensFromReq = require("@sustainer-network/tokens-from-req");
 const eventStore = require("@sustainer-network/event-store-js");
 const logger = require("@sustainer-network/logger");
 
-app.post("/", (req, res) => {
+app.post("/", jsonParser, (req, res) => {
+  logger.info("TARGET: ", { target: process.env.TARGET });
   logger.info("REQ BE: ", { req });
   logger.info("HEADERS BE: ", { headers: req.headers });
   logger.info("BODY BE: ", { body: req.body });

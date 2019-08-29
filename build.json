@@ -17,7 +17,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud alpha run deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-command --image=us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} --memory=${_MEMORY} --allow-unauthenticated --project=staging-${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
+        "gcloud beta run deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-command --image=us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} --memory=${_MEMORY} --allow-unauthenticated --project=staging-${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
       ]
     }
   ]

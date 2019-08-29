@@ -39,7 +39,10 @@ describe("Create auth token command", () => {
           ip: "asdf"
         }
       },
-      { authorization: "Bearer BOOHOOOHOOHO" }
+      {
+        authorization: "Bearer BOOHOOOHOOHO",
+        "content-type": "application/json"
+      }
     );
 
     expect(response.statusCode).to.equal(200);

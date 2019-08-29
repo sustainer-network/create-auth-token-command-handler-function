@@ -3,7 +3,7 @@ const { post } = require("@sustainer-network/request");
 const { fineTimestamp } = require("@sustainer-network/datetime");
 // const { create } = require("@sustainer-network/jwt");
 
-const address = "https://v1.create.auth-token.core.staging.sustainer.network";
+const address = "https://create.auth-token.core.staging.sustainer.network";
 
 describe("Create auth token command", () => {
   it("should return successfully", async () => {

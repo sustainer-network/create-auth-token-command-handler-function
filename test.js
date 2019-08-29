@@ -37,7 +37,8 @@ describe("Create auth token command", () => {
         issuerInfo: {
           id: "asdf",
           ip: "asdf"
-        }
+        },
+        aNumber: 23
       },
       {
         authorization: "Bearer BOOHOOOHOOHO"

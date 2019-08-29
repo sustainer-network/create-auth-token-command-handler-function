@@ -9,7 +9,7 @@
     "_GCP_REGION": "us-central1",
     "_GCP_DNS_ZONE": "network",
     "_ESP_OPTIONS": "--cors_preset=basic,--cors_allow_methods=POST,--cors_allow_headers=Authorization Content-Type,--cors_allow_credentials",
-    "_MEMORY": "128M"
+    "_MEMORY": "128Mi"
   },
   "steps": [
     {

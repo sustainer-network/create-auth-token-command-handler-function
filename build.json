@@ -17,7 +17,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "docker build -t us.gcr.io/${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} ."
+        "docker build -t us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} ."
       ]
     },
     {
@@ -25,7 +25,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "docker push us.gcr.io/${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION}"
+        "docker push us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION}"
       ]
     },
     {
@@ -33,7 +33,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud beta run deploy ${_SERVICE}-${_DOMAIN}-${_ACTION}-command --image=us.gcr.io/${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} --platform=managed --memory=${_MEMORY} --allow-unauthenticated --project=${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
+        "gcloud beta run deploy staging-${_SERVICE}-${_DOMAIN}-${_ACTION}-command --image=us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} --platform=managed --memory=${_MEMORY} --allow-unauthenticated --project=staging-${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=NODE_ENV=staging,NETWORK=${_NETWORK},SERVICE=${_SERVICE},ACTION=${_ACTION},DOMAIN=${_DOMAIN}"
       ]
     }
   ]

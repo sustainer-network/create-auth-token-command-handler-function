@@ -13,19 +13,11 @@
   },
   "steps": [
     {
-      "name": "gcr.io/cloud-builders/docker",
+      "name": "gcr.io/cloud-builders/gcloud",
       "entrypoint": "bash",
       "args": [
         "-c",
-        "docker build -t us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION} ."
-      ]
-    },
-    {
-      "name": "gcr.io/cloud-builders/docker",
-      "entrypoint": "bash",
-      "args": [
-        "-c",
-        "docker push us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION}"
+        "gcloud builds submit --tag us.gcr.io/staging-${_GCP_PROJECT}/${_SERVICE}.${_DOMAIN}.${_ACTION}"
       ]
     },
     {

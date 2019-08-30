@@ -7,7 +7,8 @@
     "@sustainer-network/tokens-from-req": "*",
     "@sustainer-network/event-store-js": "*",
     "@sustainer-network/errors": "*",
-    "@sustainer-network/logger": "*"
+    "@sustainer-network/logger": "*",
+    "@sustainer-network/kms": "*"
   },
   "main": "index.js",
   "scripts": {

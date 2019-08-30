@@ -2,6 +2,7 @@ const { expect } = require("chai");
 const { post } = require("@sustainer-network/request");
 const { fineTimestamp } = require("@sustainer-network/datetime");
 const { create } = require("@sustainer-network/jwt");
+const { sign } = require("@sustainer-network/kms");
 
 const url = "https://create.auth-token.core.staging.sustainer.network";
 
@@ -25,7 +26,7 @@ describe("Create auth token command", () => {
           org: "some-org"
         }
       },
-      secret: process.env.SECRET
+      signFn: sign
     });
 
     const response = await post(

@@ -19,3 +19,5 @@ app.post("/", (req, res) => {
     .then(response => res.send(response))
     .catch(e => res.status(e.statusCode).send(e));
 });
+
+module.exports = app;

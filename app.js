@@ -11,7 +11,7 @@ const logger = require("@sustainer-network/logger");
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-  logger.info("env: ", process.env);
+  logger.info("req body: ", req.body);
   commandHandler({
     params: req.body,
     tokens: tokensFromReq(req),

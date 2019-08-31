@@ -19,7 +19,11 @@ app.post("/", (req, res) => {
     publishEventFn: eventStore.add
   })
     .then(response => res.send(response))
-    .catch(e => res.status(e.statusCode).send(e));
+    .catch(e => {
+      logger.error(e, { stack: e.stack });
+
+      res.status(e.statusCode || 500).send(e);
+    });
 });
 
 module.exports = app;

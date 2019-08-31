@@ -89,7 +89,7 @@
       "entrypoint": "bash",
       "args": [
         "-c",
-        "gcloud beta run services update ${_SERVICE}-${_DOMAIN}-${_ACTION}-command --platform=managed --project=staging-${_GCP_PROJECT} --region=${_GCP_REGION} --set-env-vars=\"^|^ESP_ARGS=--rollout_strategy=managed,${_ESP_OPTIONS}\""
+        "gcloud beta run services update ${_SERVICE}-${_DOMAIN}-${_ACTION}-command --platform=managed --project=staging-${_GCP_PROJECT} --region=${_GCP_REGION} --update-env-vars=\"^|^ESP_ARGS=--rollout_strategy=managed,${_ESP_OPTIONS}\""
       ]
     },
     {
